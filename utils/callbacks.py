@@ -34,15 +34,15 @@ class FreezeOutputCallback(tf.keras.callbacks.Callback):
                 else:
                     self.wait[output] += 1
                     if self.wait[output] >= self.patience:
-                        self.freeze_output(output)
+                        self.freeze_output(output, epoch)
                         self.frozen_outputs.add(output)
                         if len(self.frozen_outputs) == len(self.best_val_accuracies):
                             self.model.stop_training = True
                             print(f"\nAll outputs frozen. Stopping training at epoch {epoch + 1}.")
                             break
 
-    def freeze_output(self, output_name):
+    def freeze_output(self, output_name, epoch):
         for layer in self.model.layers:
             if layer.name.startswith(output_name):
                 layer.trainable = False
-        print(f"\nFreezing output: {output_name}")
+        print(f"\nFreezing output {output_name} at {epoch + 1} epochs.")
