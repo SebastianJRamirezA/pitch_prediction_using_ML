@@ -58,7 +58,7 @@ def engineer_features(data):
 def select_features(data):
     selected_features = [
         'plate_app_id', 'previous_pitch', 'previous_zone', 'pitch_number',
-        'inning', 'on_3b', 'on_2b', 'on_1b', 'score_diff', 'balls', 'outs_when_up', 'pitch_type', 'zone'
+        'inning', 'on_3b', 'on_2b', 'on_1b', 'score_diff', 'balls', 'strikes', 'outs_when_up', 'pitch_type', 'zone'
     ]
     return data[selected_features]
 
