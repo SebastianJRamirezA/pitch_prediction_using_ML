@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 
+# Code adapted from: Baseball Pitch Prediction with Deep Learning
+# https://seanjhannon.medium.com/baseball-pitch-prediction-with-deep-learning-df68094fcc65
+
 class Sequencer:
     def __init__(self,
                  data: pd.core.frame.DataFrame,
